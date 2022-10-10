@@ -1,0 +1,88 @@
+/*/ Estilos de la clase#2/*/
+
+#encabezado{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:8%; 
+    width:100%;
+    background-color: blue;
+    color:white
+    
+
+}
+#encabezado h1{ /* Se aplica a los h1 despues del encabezado*/
+    display: inline;
+}
+
+#menu{
+    position: absolute;
+    top: 8%;
+    left: 0;
+    height:4%; 
+    width:100%;
+    background-color: black;
+    color:white;
+   
+    
+}
+#menu a {/*El over es para que cuando se coloque encima de...*/
+    background-color: red;
+    color:black;
+     display:inline;
+}
+#menu a:hover{/*El over es para que cuando se coloque encima de...*/
+    background-color: purple;
+    color:white;
+}
+
+#barraLateral{
+    position: absolute;
+    top: 12%;/*alto en pantalla*/
+    left: 0;/*izquierda*/
+    height:81%; /*alto en tamaño*/
+    width:20%;/*Ancho*/
+    background-color: #00FFA0;
+    padding: 10px;
+   
+    
+}
+#contenido{
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    height:81%; 
+    width:80%;
+    background-color: #7901A0;
+    padding: 10px;
+    overflow: auto; /*Es para hacer scroll en secciones determinadas de la pagina*/
+}
+
+#piePagina{
+   position: absolute;
+    bottom:0;
+    left: 0%;
+    height:4%; 
+    width:100%;
+    background-color: midnightblue;
+    color:white;
+    font-size: 15px;
+   text-align: center;
+     
+    
+}
+#encabezadoTabla{
+    background-color:lightslategray;
+    color: white;
+    font-size: 18px;
+    
+}
+#tablaresumen tr:nth-child(odd){ /*Para aplicar a las líneas pares*/
+    background-color: lightgrey;
+    color: black;
+}
+
+#tablaresumen tr:nth-child(even){ /*Para aplicar a las líneas impares*/
+    background-color: white;
+    color: black;
+}
