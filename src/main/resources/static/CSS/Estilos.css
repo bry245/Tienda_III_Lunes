@@ -2,7 +2,7 @@
 
 #encabezado{
     position: absolute;
-    top: 0;
+    top: 15%;
     left: 0;
     height:8%; 
     width:100%;
@@ -38,7 +38,7 @@
 
 #barraLateral{
     position: absolute;
-    top: 12%;/*alto en pantalla*/
+    top: 25%;/*alto en pantalla*/
     left: 0;/*izquierda*/
     height:81%; /*alto en tamaño*/
     width:20%;/*Ancho*/

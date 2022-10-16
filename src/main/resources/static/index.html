@@ -8,21 +8,30 @@
         <meta charset="UTF-8">
         <meta name="Descripcion" content="Contiene etiquetas HTML5">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="CSS/Estilos.css" rel="stylesheet" type="text/css"/>
+        <!-- <link href="CSS/Estilos.css" rel="stylesheet" type="text/css"/>-->
+        <link href="CSS/menus.css" rel="stylesheet" type="text/css"/>
         <!--Esto  se hace para hacer una refernecia y hacer uso de estilos-->
     </head>
 
     <body>
         <!--Encabezado Header -->
-        <header id="encabezado">
-            <h1>Tienda en línea TechShop</h1>
+        <header class="header">
+           
+            <nav class="nav"> <!--Ilustra un menu-->
+                <a href="index.html" class="logo nav-link">TechShop</a>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a class="nav-menu-link" href="ejemplo9.html">&LeftTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a  class="nav-menu-link"href="ejemplo2.html">&RightTriangleBar;</a><br>
+                    <li class="nav-menu-item"><a  class="nav-menu-link"href="Iframes.html">Videos</a><br>
+                    <li class="nav-menu-item"><a  class="nav-menu-link"href="videos.html">Iframes</a><br>
+                    <li class="nav-menu-item"><a  class="nav-menu-link"href="audio.html">Audios</a><br>
+                    <li class="nav-menu-item"><a  class="nav-menu-link"href="formulario.html">Formularios</a><br>
+                
+                </ul>
+            </nav>
         </header>
 
-        <nav id="menu"> <!--Ilustra un menu-->
-            <a href="ejemplo9.html">Back</a>|
-            <a href="index.html">Home</a>|
-            <a href="ejemplo2.html">Next</a><br>
-        </nav>
+
 
 
 
@@ -37,7 +46,7 @@
                 penatibus mus justo fames eros eleifend malesuada nam hendrerit
                 curae pretium, scelerisque bibendum pharetra sem id dui 
                 dictum blandit iaculis sodales ante</p>
-            
+
 
         </aside>
 
@@ -54,8 +63,8 @@
             </article>
             <br>
 
-           <article>
-               <header ><strong>Alienware ATD 900</strong></header>
+            <article>
+                <header ><strong>Alienware ATD 900</strong></header>
                 <p >Lorem Ipsum is simply dummy text of
                     the printing and typesetting industry. Lorem Ipsum has been the industry's
                 </p>
@@ -73,47 +82,47 @@
                 <figure> <img src="Images/impresora.jpg" alt="Impresora "width="300"/></figure>
                 <figcaption>Novedades 2022</figcaption>
             </article>
-           <header ><strong>Resume de líneas generales</strong></header>
-                <p >Lorem Ipsum is simply dummy text of
-                    the printing and typesetting industry. Lorem Ipsum has been the industry's
-                </p>
-                <table border="0">
-                    <thead>
-                        <tr id="encabezadoTabla">
-                            <th>Código</th><!-- Encabezados de la tabla-->
-                            <th>Detalle</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaresumen">
-                        <tr>
-                            <td>1</td>
-                            <td>Lorem Ipsum is simply</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Lorem Ipsum is simply</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lorem Ipsum is simply</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Lorem Ipsum is simply</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Lorem Ipsum is simply</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Lorem Ipsum is simply</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <header ><strong>Resume de líneas generales</strong></header>
+            <p >Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry. Lorem Ipsum has been the industry's
+            </p>
+            <table border="0">
+                <thead>
+                    <tr id="encabezadoTabla">
+                        <th>Código</th><!-- Encabezados de la tabla-->
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaresumen">
+                    <tr>
+                        <td>1</td>
+                        <td>Lorem Ipsum is simply</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Lorem Ipsum is simply</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Lorem Ipsum is simply</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Lorem Ipsum is simply</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Lorem Ipsum is simply</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Lorem Ipsum is simply</td>
+                    </tr>
+                </tbody>
+            </table>
 
-                
-            
+
+
         </section>
         <footer id="piePagina">Derechos Reservados &COPY; <address style="display: inline">Tel: 8889-9090</address></footer>
 
