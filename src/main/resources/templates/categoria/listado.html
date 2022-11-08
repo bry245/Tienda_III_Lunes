@@ -15,27 +15,26 @@
     <body>
     <header th:replace="layout/plantilla :: header"/>
     <div class="contenido">
-        <h2>Nuestros Artículos</h2>
+        <h2>Lista Categorías</h2>
 
-        
-        <div th:if="${articulos != null and !articulos.empty}">
+        <a th:href="@{/categoria/nuevo}">Nueva Categoria</a>
+        <div th:if="${categorias != null and !categorias.empty}">
             <p>Registros</p>
             <table border="1" >
                 <thead>
                     <tr>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Comprar</th>
-                        
+                        <th>Descripción</th>
+                        <th>Ativa</th>
+                      
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="articulo:${articulos}"><!--Por cada elemento de Clinetes -->
-                        <td th:text="${articulo.descripcion}"></td>
-                        <td th:text="${articulo.precio}"></td>
-                        <td> <a th:href="@{carrito/agregar/} + ${articulo.idArticulo}">Comprar</a></td>
-                       
+                    <tr th:each="categoria:${categorias}"><!--Por cada elemento de Clinetes -->
+                        <td th:text="${categoria.descripcion}"></td>
+                        <td> <input type="checkbox"  name="activo" th:checked="${categoria.activo}" disabled="true"></td>
+                        <td> <a th:href="@{/categoria/elimianar/} + ${categoria.idCategoria}">Eliminar</a></td>
+                        <td> <a th:href="@{/categoria/modificar/} + ${categoria.idCategoria}">Modificar</a></td>
 
 
                     </tr>
@@ -44,7 +43,7 @@
         </div>
 
         <!-- -->
-        <div th:if="${articulos == null or articulos.empty}">
+        <div th:if="${categorias == null or categorias.empty}">
             Lista Vacia
         </div>
     </div>

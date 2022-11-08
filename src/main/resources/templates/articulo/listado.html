@@ -12,30 +12,36 @@
 
     <!--<header th:replace="layout/plantilla :: header"/>-->
 
+    
     <body>
-    <header th:replace="layout/plantilla :: header"/>
     <div class="contenido">
-        <h2>Nuestros Artículos</h2>
+    <header th:replace="layout/plantilla :: header"/>
+    
+        <h2>Lista Articulos</h2>
 
-        
+        <a th:href="@{/articulo/nuevo}">Nueva Categoria</a>
         <div th:if="${articulos != null and !articulos.empty}">
             <p>Registros</p>
             <table border="1" >
                 <thead>
                     <tr>
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
                         <th>Precio</th>
-                        <th>Comprar</th>
+                        <th>Existencias</th>
+                        <th>Activa</th>
                         
+                      
 
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="articulo:${articulos}"><!--Por cada elemento de Clinetes -->
                         <td th:text="${articulo.descripcion}"></td>
-                        <td th:text="${articulo.precio}"></td>
-                        <td> <a th:href="@{carrito/agregar/} + ${articulo.idArticulo}">Comprar</a></td>
-                       
+                        <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
+                        <td th:text="${articulo.existencias}" style="text-align: center"></td>
+                        <td> <input type="checkbox"  name="activo" th:checked="${articulo.activo}" disabled="true"/></td>
+                        <td> <a th:href="@{/articulo/elimianar/} + ${articulo.idArticulo}">Eliminar</a></td>
+                        <td> <a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}">Modificar</a></td>
 
 
                     </tr>
@@ -48,9 +54,9 @@
             Lista Vacia
         </div>
     </div>
-
+       
     <footer th:replace="layout/plantilla :: footer"   />
-    </body>
+     </body>
 </html>
 
 
