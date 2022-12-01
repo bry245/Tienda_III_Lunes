@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!--xmlns:th="http://www.thymeleaf.org"  th:text="Hola con Thymeleaf"-->
 
-<html xmlns: th="http://www.thymeleaf.org" 
-      xmlns="http://www.w3.org/1999">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
@@ -17,18 +18,20 @@
     <div class="contenido">
     <header th:replace="layout/plantilla :: header"/>
     
-        <h2>Lista Articulos</h2>
+        <h2 th:text="#{articulo.titulo}">Lista Articulos</h2>
 
-        <a th:href="@{/articulo/nuevo}">Nueva Categoria</a>
+        <a th:href="@{/articulo/nuevo}" th:text="#{articulo.nuevo}">Nuevo Artículo</a>
         <div th:if="${articulos != null and !articulos.empty}">
             <p>Registros</p>
             <table border="1" >
                 <thead>
                     <tr>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Existencias</th>
-                        <th>Activa</th>
+                        <th th:text="#{articulo.descripcion}">Descripción</th>
+                        <th th:text="#{articulo.precio}">Precio</th>
+                        <th th:text="#{articulo.existencias}">Existencias</th>
+                        <th th:text="#{articulo.activo}">Activo</th>
+                        <th th:text="#{accion.eliminar}">Eliminar</th>
+                        <th th:text="#{accion.actualizar}">Modificar</th>
                         
                       
 
@@ -40,8 +43,8 @@
                         <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
                         <td th:text="${articulo.existencias}" style="text-align: center"></td>
                         <td> <input type="checkbox"  name="activo" th:checked="${articulo.activo}" disabled="true"/></td>
-                        <td> <a th:href="@{/articulo/elimianar/} + ${articulo.idArticulo}">Eliminar</a></td>
-                        <td> <a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}">Modificar</a></td>
+                        <td> <a th:href="@{/articulo/elimianar/} + ${articulo.idArticulo}" th:text="#{accion.eliminar}">Eliminar</a></td>
+                        <td> <a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"th:text="#{accion.actualizar}">Modificar</a></td>
 
 
                     </tr>
@@ -50,7 +53,7 @@
         </div>
 
         <!-- -->
-        <div th:if="${articulos == null or articulos.empty}">
+        <div th:if="${articulos == null or articulos.empty}"th:text="#{articulo.no_mostrar}">
             Lista Vacia
         </div>
     </div>

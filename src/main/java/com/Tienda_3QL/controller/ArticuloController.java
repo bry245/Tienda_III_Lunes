@@ -6,6 +6,7 @@ package com.Tienda_3QL.controller;
 
 import com.Tienda_3QL.domain.Articulo;
 import com.Tienda_3QL.service.ArticuloService;
+import com.Tienda_3QL.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,20 +23,25 @@ public class ArticuloController {
     
     @Autowired
     private  ArticuloService articuloService;
+    @Autowired
+    private  CategoriaService categoriaService;
     
      
      
     @GetMapping("/articulo/listado")
     public String inicio(Model model) {
         var articulos = articuloService.getArticulos(false);/*Metodo del crud que devulve todos los articulos*/
+        
         model.addAttribute("articulos", articulos);
+      
         return "/articulo/listado";/*Retorna a que vista de templates llamar*/
     }
     
     
     @GetMapping("/articulo/nuevo")
-    public String nuevoArticulo(Articulo articulo){
-        
+    public String nuevoArticulo(Articulo articulo, Model model){
+       var categorias =categoriaService.getCategorias(true);
+        model.addAttribute("categorias",categorias);
         return "/articulo/modificar";
     }
     @PostMapping("/articulo/guardar")
@@ -48,6 +54,8 @@ public class ArticuloController {
     public String modificarArticulo(Articulo articulo, Model model){
         articulo= articuloService.getArticulo(articulo);
         model.addAttribute("articulo", articulo);
+        var categorias =categoriaService.getCategorias(false);
+        model.addAttribute("categorias",categorias);
         return "/articulo/modificar";    
     }
     

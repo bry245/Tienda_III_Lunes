@@ -46,4 +46,11 @@ public class ClienteServiceimpl implements ClienteService {
         
     }
 
+    @Override
+    public List<Cliente> getByApellidosIgnoreCase(String apellidos) {
+    return clienteDao.findByApellidos("Castro mora");
+    }
+
+    
+
 }

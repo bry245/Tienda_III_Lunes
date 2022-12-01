@@ -4,6 +4,7 @@
  */
 package com.Tienda_3QL.controller;
 
+import com.Tienda_3QL.dao.ClienteDao;
 import com.Tienda_3QL.domain.Cliente;
 import com.Tienda_3QL.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,8 +58,13 @@ public class ClienteController {
         return "redirect:/cliente/listado";
     }
     
+     @GetMapping("/cliente/listado/{apellidos}")
+    public String porApellidos(Model model) {
+       var clientes= clienteService.getByApellidosIgnoreCase("castro mora");
+       model.addAttribute("clientes", clientes);
+        return "/cliente/listado";
     
-    
+    }
     
     
     

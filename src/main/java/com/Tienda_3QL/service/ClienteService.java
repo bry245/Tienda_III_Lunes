@@ -16,7 +16,7 @@ public interface ClienteService {
     
     public Cliente getCliente(Cliente cliente);
     
-    
+    public List<Cliente> getByApellidosIgnoreCase(String apellidos);
     
     
 }

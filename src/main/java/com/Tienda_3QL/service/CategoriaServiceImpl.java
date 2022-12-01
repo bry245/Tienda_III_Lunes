@@ -19,9 +19,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         var Lista= (List<Categoria>) categoriaDao.findAll();
         if(activos){ // si es falso retonar la lista completa y si es verdadero que queire solo los activos
             Lista.removeIf(e -> !e.isActivo()); // se remueve de la lista que no es activos... Por cada elemento si no es activo lo remueve
-        }
-        
-        
+        } 
         return Lista;
     }
 
