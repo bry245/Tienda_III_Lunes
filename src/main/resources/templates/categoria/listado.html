@@ -4,52 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/CSS/menus.css" rel="stylesheet" type="text/css"/>
     </head>
 
-    <!--<header th:replace="layout/plantilla :: header"/>-->
+  
 
     <body>
-    <header th:replace="layout/plantilla :: header"/>
-    <div class="contenido">
-        <h2 th:text="#{categoria.titulo}">Lista Categorías</h2>
+        <header th:replace="layout/plantilla :: header" />
 
-        <a th:href="@{/categoria/nuevo}" th:text="#{categoria.nuevo}">Nueva Categoria</a>
-        <div th:if="${categorias != null and !categorias.empty}">
-            
-            <table border="1" >
-                <thead>
-                    <tr>
-                        <th th:text="#{categoria.descripcion}">Descripción</th>
-                        <th th:text="#{categoria.activo}">Activa</th>
-                      
+        <section th:replace="categoria/fragmentosCategoria :: botonesAgregar"/>
+        <section th:replace="Categoria/fragmentosCategoria :: agregarCliente"/>
+        <section th:replace="categoria/fragmentosCategoria :: listadoCategorias"/>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="categoria:${categorias}"><!--Por cada elemento de Clinetes -->
-                        <td th:text="${categoria.descripcion}"></td>
-                        <td> <input type="checkbox"  name="activo" th:checked="${categoria.activo}" disabled="true"></td>
-                        <td> <a th:href="@{/categoria/elimianar/} + ${categoria.idCategoria}" th:text="#{accion.eliminar}">Eliminar</a></td>
-                        <td> <a th:href="@{/categoria/modificar/} + ${categoria.idCategoria}"th:text="#{accion.actualizar}">Modificar</a></td>
+        <footer th:replace="layout/plantilla :: footer" />
 
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- -->
-        <div th:if="${categorias == null or categorias.empty}"th:text="#{categoria.no_mostrar}">
-            Lista Vacia
-        </div>
-    </div>
-
-    <footer th:replace="layout/plantilla :: footer"   />
     </body>
 </html>
 

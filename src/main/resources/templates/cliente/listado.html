@@ -3,62 +3,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
-      xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
+     xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/CSS/menus.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <!--<header th:replace="layout/plantilla :: header"/>-->
-
-
-    
     <body>
-    <div class="contenido">
-        <header th:replace="layout/plantilla :: header"/>
-        <h2 th:text="#{cliente.titulo}">Lista Clientes</h2>  <!-- Minuto 7 video 4 -->
+  <header th:replace="layout/plantilla :: header" />
 
-        <a th:href="@{/cliente/nuevo}" th:text="#{accion.nuevo}">Nuevo Cliente</a>
-        <div th:if="${clientes != null and !clientes.empty}" >
-            
-            <table border="1" >
-                <thead>
-                    <tr>
-                        <th  th:text="#{cliente.nombre}">Nombre</th>
-                        <th  th:text="#{cliente.apellidos}"> Apellidos</th>
-                        <th  th:text="#{cliente.correo}">Correo</th>
-                        <th  th:text="#{cliente.telefono}">Telefono</th>
-                        <th  th:text="#{cliente.limite}">Limite</th>
-                        <th  th:text="#{accion.eliminar}">Eliminar</th>
-                        <th  th:text="#{accion.actualizar}">Modificar</th>
+<section th:replace="cliente/fragmentosCliente :: botonesAgregar"/>
+<section th:replace="cliente/fragmentosCliente :: agregarCliente"/>
+<section th:replace="cliente/fragmentosCliente :: listadoClientes"/>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="cliente:${clientes}"><!--Por cada elemento de Clinetes -->
-                        <td th:text="${cliente.nombre}"></td>
-                        <td th:text="${cliente.apellidos}"></td>
-                        <td th:text="${cliente.correo}"></td>
-                        <td th:text="${cliente.telefono}"></td>
-                        <td th:text="${#numbers.formatDecimal(cliente.credito.limite,3,2)}" style="text-align: right"></td>
-                        <td> <a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}"  th:text="#{accion.eliminar}">Eliminar</a></td>
-                        <td> <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}"  th:text="#{accion.actualizar}">Modificar</a></td>
+<footer th:replace="layout/plantilla :: footer" />
 
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- -->
-        <div th:if="${clientes == null or clientes.empty}" th:text="#{cliente.no_mostrar}">
-            Lista Vacia
-        </div>
-    </div>
-
-    <footer th:replace="layout/plantilla :: footer"   />
     </body>
 </html>
 

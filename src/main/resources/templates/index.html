@@ -1,59 +1,30 @@
 <!DOCTYPE html>
-<!--xmlns:th="http://www.thymeleaf.org"  th:text="Hola con Thymeleaf"-->
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/CSS/menus.css" rel="stylesheet" type="text/css"/>
     </head>
-
-    <!--<header th:replace="layout/plantilla :: header"/>-->
-
     <body>
-    <header th:replace="layout/plantilla :: header"/>
-    <div class="contenido">
-        <h2>Nuestros Artículos</h2>
-
-        
-        <div th:if="${articulos != null and !articulos.empty}">
-            <p>Registros</p>
-            <table border="1" >
-                <thead>
-                    <tr>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Comprar</th>
-                        
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="articulo:${articulos}"><!--Por cada elemento de Clinetes -->
-                        <td th:text="${articulo.descripcion}"></td>
-                        <td th:text="${articulo.precio}"></td>
-                        <td> <a th:href="@{carrito/agregar/} + ${articulo.idArticulo}">Comprar</a></td>
-                       
-
-
-                    </tr>
-                </tbody>
-            </table>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="container">
+            <h2 th:text="#{index.titulo}">Nuestros Articulos</h2>            
+            <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">
+                <div class="card" th:each="articulo : ${articulos}" >
+                    <img src="/images/laptos.jpg" class="card-img-top" alt="equipo">  
+                        <div class="card-body">
+                            <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                            <h6 class="card-subtitle mb-2 text-muted text-end">[[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]</h6>
+                            <a class="card-link" th:href="@{/carrito/agregar/} + ${articulo.idArticulo}">[[#{articulo.comprar}]]</a>
+                            <p class="card-text">[[${articulo.detalle}]]</p>                        
+                        </div>
+                </div>                
+            </div>
+            <div th:if="${articulos == null or articulos.empty}"  th:text="#{articulo.no_mostrar}">
+                No tenemos lista de articulos que mostrar...
+            </div>
         </div>
-
-        <!-- -->
-        <div th:if="${articulos == null or articulos.empty}">
-            Lista Vacia
-        </div>
-    </div>
-
-    <footer th:replace="layout/plantilla :: footer"   />
+        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
-
-
-
 
